@@ -15,12 +15,17 @@ class IndexHandler(RequestHandler):
     def get(self,*args,**kwargs):
 
         arg = self.get_query_argument('day',None)
+        print(self.get_query_arguments('hello'))
         print('arg-->',arg)
 
         args = self.get_query_arguments('day')
         print('args-->',args)
 
         self.write('<a href="/python">hello python</a>')
+        print(self.request.headers)
+        print(self.request.uri)
+
+
 
     # 响应以post方式发送的请求
     def post(self,*args,**kwargs):
@@ -37,6 +42,8 @@ class IndexHandler(RequestHandler):
         day3 = self.get_argument('day')
         print('get_argument:',day3)
         self.write('received')
+        print(self.request.headers)
+        print(self.request.uri)
 
 # 用来响应 /java 请求
 class JavaHandler(RequestHandler):
